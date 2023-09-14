@@ -16,6 +16,9 @@ def test_apply_discount(item1):
     item1.apply_discount()
     assert item1.price == 15000
 
+def test_item(item1):
+    assert repr(item1) == "Item('Смартфон', 10000, 20)"
+    assert str(item1) == 'Смартфон'
 
 
 

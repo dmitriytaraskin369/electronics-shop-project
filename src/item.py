@@ -19,7 +19,7 @@ class Item:
         Item.all.append(self)
         self.__name = name
         self.price = price
-        self.quantity = quantity
+        self.quantity = int(quantity)
 
     def __repr__(self):
         return f"{self.__class__.__name__}('{self.__name}', {self.price}, {self.quantity})"
@@ -63,6 +63,11 @@ class Item:
         Применяет установленную скидку для конкретного товара.
         """
         self.price *= self.pay_rate
+
+    def __add__(self, other):
+        if issubclass(other.__class__,self.__class__):
+            return self.quantity + other.quantity
+        print("Эти объекты нельзя сложить")
 
 
 

@@ -27,6 +27,11 @@ class Item:
     def __str__(self):
         return f'{self.__name}'
 
+    def __add__(self, other):
+        if issubclass(other.__class__,self.__class__):
+            return self.quantity + other.quantity
+        print("Эти объекты нельзя сложить")
+
     @staticmethod
     def string_to_number(str_number):
         return int(float(str_number))
@@ -64,10 +69,7 @@ class Item:
         """
         self.price *= self.pay_rate
 
-    def __add__(self, other):
-        if issubclass(other.__class__,self.__class__):
-            return self.quantity + other.quantity
-        print("Эти объекты нельзя сложить")
+
 
 
 

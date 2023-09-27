@@ -19,4 +19,7 @@ class KeyBoardMixin:
 
 class Keyboard(Item, KeyBoardMixin):
     """Класс для клавиатуры со сменой языка"""
-    pass
+
+    def __init__(self, name, price, quantity):
+        super().__init__(name, price, quantity)
+        KeyBoardMixin.__init__(self)
